@@ -1,0 +1,92 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fake & Adulterated Products Busted in Thailand · Aug–Nov 2026</title>
+<style>
+:root{--bg:#0b0d12;--card:#141821;--line:#232a36;--tx:#e8ecf3;--mut:#8a94a7;--sk:#ff5fa2;--su:#7c8cff;--fo:#ffb547;--red:#ff4d4d}
+*{box-sizing:border-box}body{margin:0;font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:radial-gradient(1200px 600px at 10% -10%,#2a1030 0,transparent 60%),radial-gradient(900px 500px at 100% 0,#101a3a 0,transparent 60%),var(--bg);color:var(--tx)}
+.wrap{max-width:1200px;margin:auto;padding:28px 18px 60px}
+h1{font-size:clamp(28px,5vw,52px);line-height:1.05;margin:8px 0 10px;letter-spacing:-.02em}
+h1 span{background:linear-gradient(90deg,var(--sk),var(--su),var(--fo));-webkit-background-clip:text;color:transparent}
+.tag{display:inline-block;padding:4px 10px;border:1px solid var(--red);color:var(--red);border-radius:99px;font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.sub{color:var(--mut);max-width:760px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:24px 0}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px}
+.stat b{display:block;font-size:30px}.stat small{color:var(--mut)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 22px}.chip{padding:6px 12px;border-radius:99px;background:#1c2130;border:1px solid var(--line);font-size:13px}.chip i{color:var(--red);font-style:normal;margin-left:6px}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:10px 0 16px;position:sticky;top:0;background:rgba(11,13,18,.9);backdrop-filter:blur(8px);padding:10px 0;z-index:5}
+.bar button{background:var(--card);color:var(--tx);border:1px solid var(--line);border-radius:10px;padding:8px 14px;cursor:pointer}
+.bar button.on{background:var(--tx);color:#000}
+.bar input,.bar select{background:var(--card);color:var(--tx);border:1px solid var(--line);border-radius:10px;padding:8px 12px;flex:1;min-width:180px}
+.bar select{flex:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px}
+.c{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;transition:.2s}
+.c:hover{transform:translateY(-3px);border-color:#3a4458}
+.th{height:180px;background:#0f1219;position:relative;cursor:zoom-in}
+.th img{width:100%;height:100%;object-fit:cover}
+.ph{height:100%;display:flex;align-items:center;justify-content:center;font-size:64px;cursor:default}
+.Skincare .ph{background:linear-gradient(135deg,#3a1028,#141821)}.Supplement .ph{background:linear-gradient(135deg,#1a1f4a,#141821)}.Food .ph{background:linear-gradient(135deg,#3d2a08,#141821)}
+.cat{position:absolute;top:10px;left:10px;padding:3px 10px;border-radius:99px;font-size:12px;font-weight:600;color:#000}
+.Skincare .cat{background:var(--sk)}.Supplement .cat{background:var(--su)}.Food .cat{background:var(--fo)}
+.bd{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.bd h3{margin:0;font-size:17px}.meta{color:var(--mut);font-size:13px}
+.prob{color:#ffb3b3;font-weight:600}.sz{font-size:13px}
+.ft{margin-top:auto;display:flex;justify-content:space-between;font-size:12px;color:var(--mut);padding-top:8px;border-top:1px solid var(--line)}
+a{color:#9fb4ff}
+.note{margin-top:30px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;color:var(--mut);font-size:14px}
+#lb{position:fixed;inset:0;background:rgba(0,0,0,.9);display:none;align-items:center;justify-content:center;z-index:9;cursor:zoom-out}#lb img{max-width:94vw;max-height:90vh;border-radius:10px}
+</style></head><body><div class="wrap">
+<span class="tag">⚠ Reported cases only</span>
+<h1>Fake &amp; adulterated <span>skincare, supplements &amp; food</span> busted in Thailand</h1>
+<p class="sub">Police, FDA (อย.) and Customs busts reported in public media and FDA notices, Aug 4 – Nov 4, 2026. Photos come from the source articles and notices; click a photo to enlarge it.</p>
+<div class="stats" id="stats"></div>
+<div class="chips" id="chips"></div>
+<div class="bar"><span id="cats"></span><input id="q" placeholder="Search brand, place, chemical…"><select id="sort"><option value="date">Newest first</option><option value="val">Biggest seizure</option><option value="cat">Category</option></select></div>
+<div class="grid" id="grid"></div>
+<div class="note"><b>Caveats.</b> This covers cases reported in the media and in FDA notices only, so it is not a complete list. “Fake” covers several things: counterfeit brands, unregistered imports with no Thai label, and products found to contain banned substances. Entries from the FDA monthly test results give only the month. The ฿238M Sakon Nakhon customs case covers all the trademark-infringing goods seized, not only cosmetics, and it makes up most of the total value. Brand names in counterfeit cases belong to the real companies, whose own products were <i>not</i> found to be unsafe. Photos © their original publishers and are linked to each source.</div>
+</div><div id="lb"><img></div>
+<script>
+const FDA="https://food.fda.moph.go.th/consumer-alertnews/category/verification-results-2569/";
+const C=[
+[1,"2026-08-11","Skincare","Japanese imports: Hada Labo, Biore, Coenrich Q10, Ora2me, FINO, TSUBAKI, MACHERIE + ROHTO eye drops, Ascorbic Acid supplement (14,400 pcs)","Warehouse, Bang Kaeo, Bang Phli, Samut Prakan","Not notified with FDA, no Thai label","83,483 items",8.35,"https://siamnews.com/news/social/51033","img/c1.jpg"],
+[2,"2026-09-02","Skincare","Unnamed premium face-cream brand (home-mixed)","Not disclosed (raid before Sep 2, reported Nov 4)","Mercury, steroids, hydroquinone","20 kg + 1,000 jars",0,"https://www.khaosod.co.th/special-stories/news_10460854","img/c2.jpg"],
+[3,"2026-09-09","Skincare","Fake SORAYA Soft Clean, Della, Malongbell, JULA'S HERB","Bang Phli, Samut Prakan","Counterfeit cosmetics","11,511 items",2,"https://www.posttoday.com/general-news/748846","img/c3.webp"],
+[4,"2026-09-14","Skincare","Fake SORAYA / Della / Malongbell / JULA'S HERB (same network)","Mueang Samut Prakan","Counterfeit cosmetics","40,984 items",4,"https://en.thairath.co.th/news/crime/2960272","img/c4.jpg"],
+[5,"2026-09-18","Skincare","Chinese contact lenses, cosmetics & vitamins","Bang Pla, Bang Phli, Samut Prakan","Unregistered / unlicensed","132,720 items",4.74,"https://www.bangkokpost.com/thailand/general/3321969","img/c5.jpg"],
+[6,"2026-09-17","Skincare","Face creams, no Thai label","Salon, Huai Khwang, Bangkok","Unlabelled, unregistered","—",0,"https://thethaiger.com/?s=huai+khwang",null],
+[7,"2026-09-19","Skincare","Trademark-infringing goods incl. cosmetics","Sakon Nakhon (Customs)","Counterfeit trademarks","26,500+ items",238,"https://siamrath.co.th/regional/322772","img/c7.webp"],
+[8,"2026-10-26","Skincare","SADOER, PINKYPINKY, EELHOE, HANBOLI, Hoygi, HIH, TWG, LUOFMISS, COSROS, West Month, RongYao, Hoegoa, JAYSUING acne patches","Bang Khae, Bangkok","Unregistered cosmetics","449,210 items",7.08,"https://www.fda.moph.go.th/news/news11-2570","img/c8.png"],
+[9,"2026-10-29","Skincare","Fake Lancôme, La Mer, SK-II, Chanel, Dior, Gucci, Jo Malone, Le Labo, Tom Ford","Nong Khaem, Bangkok","Counterfeit luxury cosmetics & perfume","Part of 26,117 items",5,"https://www.nationthailand.com/news/general/40072973","img/c9.webp"],
+[10,"2026-10-29","Supplement","Fake ON whey, Blackmores, Swisse, Dr.PONG+, Hopeful Beta Oil","Nong Khaem, Bangkok (same raid)","Counterfeit supplements","Part of 26,117 items",0,"https://www.thebangkoktimes.com/2569103131","img/c10.jpg"],
+[11,"2026-09-07","Supplement","Sex-enhancement candies & jellies","Songkhla (Customs)","Undeclared drug-like sexual enhancers","2,355 pcs",1.93,"https://www.hatyaifocus.com/news/31652",null],
+[12,"2026-08","Supplement","Mance X3","FDA test results (Aug)","Sildenafil","—",0,FDA,null],
+[13,"2026-08","Supplement","Me / Mamori","FDA test results (Aug)","Sibutramine","—",0,FDA,null],
+[14,"2026-09","Supplement","Olim Plus","FDA test results (Sep)","Sildenafil","—",0,FDA,null],
+[15,"2026-09","Supplement","Linda","Daily Beauty shop, Chachoengsao","Sibutramine","—",0,FDA,null],
+[16,"2026-09","Supplement","Narinda","Daily Beauty shop, Chachoengsao","Sibutramine","—",0,FDA,null],
+[17,"2026-09","Supplement","Nucera Z","FDA test results (Sep)","Melatonin","—",0,FDA,null],
+[18,"2026-10","Supplement","X-Some","FDA test results (Oct)","Sildenafil","—",0,FDA,null],
+[19,"2026-10","Supplement","R-5","FDA test results (Oct)","Sildenafil","—",0,FDA,null],
+[20,"2026-10","Supplement","Star S","FDA test results (Oct)","Sildenafil","—",0,FDA,null],
+[21,"2026-10","Supplement","Super Power Max","FDA test results (Oct)","Sildenafil","—",0,FDA,null],
+[22,"2026-10","Supplement","Cozy S","FDA test results (Oct)","Sibutramine","—",0,FDA,null],
+[23,"2026-10","Supplement","BASCHI","Bang Kruai, Nonthaburi","Sibutramine","—",0,FDA,null],
+[24,"2026-10","Supplement","lishou","FDA test results (Oct)","Sibutramine","—",0,FDA,null],
+[25,"2026-08","Food","Waroros orange juice (L&P Rungrueang Namthip)","FDA test results (Aug)","E. coli contamination","—",0,FDA,null],
+[26,"2026-09-17","Food","Unlabelled goods at Chinese supermarkets","Huai Khwang, Bangkok","No Thai label / unregistered","—",0,"https://thethaiger.com/?s=huai+khwang",null],
+[27,"2026-10-29","Food","Fake fish sauce ไส้ตันคู่ & vinegar สตรอเบอร์รี่","Saphan Sung, Bangkok","Counterfeit / adulterated condiments","2,392 items",0.25,"https://www.amarintv.com/news/crime/561857","img/c27.jpg"]
+].map(r=>({id:r[0],date:r[1],cat:r[2],brand:r[3],loc:r[4],prob:r[5],seized:r[6],val:r[7],src:r[8],img:r[9]}));
+const IC={Skincare:"🧴",Supplement:"💊",Food:"🍶"};
+const cnt=c=>C.filter(x=>x.cat==c).length,tot=C.reduce((a,b)=>a+b.val,0);
+stats.innerHTML=[["27","reported cases"],[cnt("Skincare"),"🧴 skincare"],[cnt("Supplement"),"💊 supplements"],[cnt("Food"),"🍶 food"],["฿"+tot.toFixed(1)+"M","seized value*"]].map(s=>`<div class=stat><b>${s[0]}</b><small>${s[1]}</small></div>`).join("");
+const chem={};C.forEach(x=>["Sildenafil","Sibutramine","Mercury","steroids","hydroquinone","Melatonin","E. coli"].forEach(k=>{if(x.prob.toLowerCase().includes(k.toLowerCase()))chem[k]=(chem[k]||0)+1}));
+chips.innerHTML=Object.entries(chem).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`<span class=chip>${k}<i>×${v}</i></span>`).join("");
+let cat="All";cats.innerHTML=["All","Skincare","Supplement","Food"].map(c=>`<button data-c="${c}" class="${c=="All"?"on":""}">${IC[c]||""} ${c}</button>`).join(" ");
+cats.onclick=e=>{const b=e.target.closest("button");if(!b)return;cat=b.dataset.c;cats.querySelectorAll("button").forEach(x=>x.classList.toggle("on",x==b));draw()};
+q.oninput=draw;sort.onchange=draw;
+function draw(){const s=q.value.toLowerCase();let L=C.filter(x=>(cat=="All"||x.cat==cat)&&(x.brand+x.loc+x.prob).toLowerCase().includes(s));
+const o=sort.value;L.sort((a,b)=>o=="val"?b.val-a.val:o=="cat"?a.cat.localeCompare(b.cat):b.date.localeCompare(a.date));
+grid.innerHTML=L.map(x=>`<div class="c ${x.cat}"><div class=th>${x.img?`<img loading=lazy src="${x.img}" alt="${x.brand}">`:`<div class=ph>${IC[x.cat]}</div>`}<span class=cat>${x.cat}</span></div>
+<div class=bd><h3>${x.brand}</h3><div class=meta>📍 ${x.loc} · 📅 ${x.date}</div><div class=prob>⚗ ${x.prob}</div><div class=sz>📦 ${x.seized}${x.val?` · <b>฿${x.val}M</b>`:""}</div>
+<div class=ft><span>#${x.id}${x.img?" · photo: source":" · placeholder icon"}</span><a href="${x.src}" target=_blank rel=noopener>Source ↗</a></div></div></div>`).join("")||"<p>No matches.</p>"}
+draw();
+grid.onclick=e=>{if(e.target.tagName=="IMG"){lb.querySelector("img").src=e.target.src;lb.style.display="flex"}};lb.onclick=()=>lb.style.display="none";
+</script></body></html>
